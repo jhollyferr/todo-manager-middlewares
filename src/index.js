@@ -50,13 +50,13 @@ function checksTodoExists(request, response, next) {
     error: 'Invalid todo id'
   });
 
-  const hasTodo = user.todos.find(todo => todo.id === id);
+  const hasTodoExists = user.todos.find(todo => todo.id === id);
 
-  if(!hasTodo) return response.status(404).json({
+  if(!hasTodoExists) return response.status(404).json({
     error: 'Todo not found'
   });
 
-  request.todo = hasTodo;
+  request.todo = hasTodoExists;
   request.user = user;
 
   return next();
